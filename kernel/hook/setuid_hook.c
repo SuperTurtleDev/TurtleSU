@@ -146,7 +146,7 @@ do_susfs_work: {
 
 int ksu_handle_setuid(uid_t new_uid, uid_t old_uid)
 {
-    if (test_thread_flag(TIF_KSU_DISABLE_KSU))
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
         return 0;
 
 #ifdef CONFIG_KSU_SUSFS

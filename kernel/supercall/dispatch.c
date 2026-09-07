@@ -863,19 +863,14 @@ static int do_get_sulog_fd(void __user *arg)
     return ksu_install_sulog_fd();
 }
 
+// Disable KSU capability for current process and its children (fork-inherited
+// via thread_info.flags, irreversible). Afterwards escape_with_root_profile()
+// aborts, is_manager()/is_allow_uid() are always false, every supercall ioctl
+// returns -EPERM, the reboot magic fd-install is skipped, and setresuid no
+// longer installs/caches anything.
 static int do_disable_escape_to_root(void __user *arg)
 {
     set_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT);
-    return 0;
-}
-
-// Disable KSU capability for current process and its children (fork-inherited
-// via thread_info.flags, irreversible). Afterwards is_manager()/is_allow_uid()
-// are always false, every supercall ioctl returns -EPERM, the reboot magic
-// fd-install is skipped, and setresuid no longer installs/caches anything.
-static int do_disable_ksu(void __user *arg)
-{
-    set_thread_flag(TIF_KSU_DISABLE_KSU);
     return 0;
 }
 
@@ -1364,12 +1359,6 @@ static const struct ksu_ioctl_cmd_map ksu_ioctl_handlers[] = {
         .handler = do_disable_escape_to_root,
         .perm_check = only_root
     },
-    {
-        .cmd = KSU_IOCTL_DISABLE_KSU,
-        .name = "DISABLE_KSU",
-        .handler = do_disable_ksu,
-        .perm_check = only_root
-    },
     // downstream begin
     { 
         .cmd = KSU_IOCTL_GET_FULL_VERSION,
@@ -1433,8 +1422,8 @@ long ksu_supercall_handle_ioctl(unsigned int cmd, void __user *argp)
 #endif
 
     // KSU capability disabled for this process (and children): reject every
-    // supercall ioctl unconditionally, including DISABLE_KSU itself.
-    if (test_thread_flag(TIF_KSU_DISABLE_KSU))
+    // supercall ioctl unconditionally, including DISABLE_ESCAPE_TO_ROOT itself.
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
         return -EPERM;
 
     for (i = 0; ksu_ioctl_handlers[i].handler; i++) {

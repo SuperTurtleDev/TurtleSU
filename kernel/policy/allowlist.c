@@ -302,7 +302,7 @@ bool __ksu_is_allow_uid(uid_t uid)
 
 bool __ksu_is_allow_uid_for_current(uid_t uid)
 {
-    if (test_thread_flag(TIF_KSU_DISABLE_KSU))
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
         return false;
     if (unlikely(uid == 0)) {
         // already root, but only allow our domain.

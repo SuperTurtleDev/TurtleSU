@@ -103,7 +103,7 @@ int ksu_handle_sys_reboot(int magic1, int magic2, unsigned int cmd, void __user 
     // the fd install nor any reboot extension (toolkit/susfs). A real reboot()
     // rejects this KSU magic1 with -EINVAL, so mimic that to keep KSU
     // undetectable.
-    if (test_thread_flag(TIF_KSU_DISABLE_KSU))
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
         return -EINVAL;
 
     // Check if this is a request to install KSU fd

@@ -19,7 +19,7 @@ static inline void ksu_mark_manager(u32 uid)
 
 static inline bool is_manager(void)
 {
-    if (test_thread_flag(TIF_KSU_DISABLE_KSU))
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
         return false;
     return ksu_get_uid_t(current_uid()) == 0;
 }
