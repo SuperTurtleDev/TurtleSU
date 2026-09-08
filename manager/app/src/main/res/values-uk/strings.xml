@@ -515,7 +515,7 @@
     <string name="dynamic_manager_clear_confirm_title">Очистити динамічний менеджер</string>
     <string name="dynamic_manager_clear_confirm_message">Ви впевнені, що хочете очистити налаштування динамічного менеджера?</string>
     <string name="manage_managers">Керування менеджерами</string>
-    <string name="home_version_info">Інформація про версію</string>
+    <string name="home_version_info">Про</string>
     <string name="home_status_info">Інформація про стан</string>
     <string name="home_short_info">Суперкористувач: %1$d, Модулі: %2$d</string>
     <string name="home_kernel_version">Версія драйвера ядра</string>
@@ -564,4 +564,7 @@
     <string name="susfs_enable_config_summary">Увімкнути вбудований менеджер SUSFS. Може конфліктувати зі сторонніми модулями.</string>
     <string name="susfs_enable_config">Менеджер SUSFS</string>
     <string name="settings_custom_monospace_font">Використовувати вбудований моноширинний шрифт</string>
+    <string name="settings_webview_zygote_umount_summary">Запобігає витоку інформації з процесу WebView, але це може порушити роботу модулів. Перезавантажте, щоб застосувати зміни.</string>
+    <string name="settings_webview_zygote_umount">Розмонтувати WebView</string>
+    <string name="about_anime_character_sticker"><![CDATA[Піктограми ліцензовані за спеціальною угодою: намальовані 怡子曰曰, авторські права належать 明风 OuO, а векторизовані піктограми надані цим проєктом.]]></string>
 </resources>
