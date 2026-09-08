@@ -33,6 +33,7 @@ class KernelRepository(
             lkmMode = ksuVersion?.let { if (kernelVersion.isGKI()) Natives.isLkmMode else null },
             kernelVersion = kernelVersion,
             isRootAvailable = runCatching { ksuCliRepository.rootAvailable() }.getOrDefault(false),
+            isKpmConfigured = runCatching { Natives.isKPMEnabled() }.getOrDefault(false),
             requireNewKernel = runCatching { isManager && Natives.requireNewKernel() }.getOrDefault(
                 false
             ),

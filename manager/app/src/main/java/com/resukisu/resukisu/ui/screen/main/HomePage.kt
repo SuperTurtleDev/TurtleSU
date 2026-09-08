@@ -76,6 +76,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.resukisu.resukisu.BuildConfig
+import com.resukisu.resukisu.Natives
 import com.resukisu.resukisu.Natives.KernelPatchImplementation
 import com.resukisu.resukisu.R
 import com.resukisu.resukisu.domain.model.HomeSystemInfo
@@ -861,6 +862,32 @@ private fun InfoCard(
                 iconPlaceholder = false,
                 title = stringResource(R.string.home_hook_type),
                 description = systemStatus.hookType,
+            )
+        }
+
+        item(
+            visible = systemStatus.lkmMode == false && !isSimpleMode
+        ) {
+            val kpmNotSupport =
+                systemInfo.kpmVersion.isEmpty() || systemInfo.kpmVersion.startsWith("Error")
+            val displayText = when {
+                kpmNotSupport && Natives.isKPMEnabled() -> stringResource(
+                    R.string.kpm_not_supported,
+                    stringResource(R.string.kernel_not_patched)
+                )
+
+                kpmNotSupport && !Natives.isKPMEnabled() -> stringResource(
+                    R.string.kpm_not_supported,
+                    stringResource(R.string.kernel_not_enabled)
+                )
+
+                else -> stringResource(R.string.kpm_supported, systemInfo.kpmVersion)
+            }
+
+            SettingsBaseWidget(
+                iconPlaceholder = false,
+                title = stringResource(R.string.home_kpm_version),
+                description = displayText,
             )
         }
 

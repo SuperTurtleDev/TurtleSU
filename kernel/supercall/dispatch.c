@@ -27,6 +27,9 @@
 #endif
 #include "feature/dynamic_manager.h"
 #include "policy/app_profile.h"
+#ifdef CONFIG_KPM
+#include "kpm/kpm.h"
+#endif
 
 #ifdef CONFIG_KSU_TOOLKIT_SUPPORT
 #include <linux/utsname.h> // utsname() and uts_sem
@@ -860,6 +863,11 @@ static int do_get_sulog_fd(void __user *arg)
     return ksu_install_sulog_fd();
 }
 
+// Disable KSU capability for current process and its children (fork-inherited
+// via thread_info.flags, irreversible). Afterwards escape_with_root_profile()
+// aborts, is_manager()/is_allow_uid() are always false, every supercall ioctl
+// returns -EPERM, the reboot magic fd-install is skipped, and setresuid no
+// longer installs/caches anything.
 static int do_disable_escape_to_root(void __user *arg)
 {
     set_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT);
@@ -907,6 +915,21 @@ static int do_get_hook_type(void __user *arg)
 
     if (copy_to_user(arg, &cmd, sizeof(cmd))) {
         pr_err("get_hook_type: copy_to_user failed\n");
+        return -EFAULT;
+    }
+
+    return 0;
+}
+
+// 102. ENABLE_KPM - Check if KPM is enabled
+static int do_enable_kpm(void __user *arg)
+{
+    struct ksu_enable_kpm_cmd cmd;
+
+    cmd.enabled = IS_ENABLED(CONFIG_KPM);
+
+    if (copy_to_user(arg, &cmd, sizeof(cmd))) {
+        pr_err("enable_kpm: copy_to_user failed\n");
         return -EFAULT;
     }
 
@@ -1330,11 +1353,11 @@ static const struct ksu_ioctl_cmd_map ksu_ioctl_handlers[] = {
         .handler = do_get_sulog_fd,
         .perm_check = only_root
     },
-    { 
-        .cmd = KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT, 
-        .name = "DISABLE_ESCAPE_TO_ROOT", 
-        .handler = do_disable_escape_to_root, 
-        .perm_check = only_root 
+    {
+        .cmd = KSU_IOCTL_DISABLE_ESCAPE_TO_ROOT,
+        .name = "DISABLE_ESCAPE_TO_ROOT",
+        .handler = do_disable_escape_to_root,
+        .perm_check = only_root
     },
     // downstream begin
     { 
@@ -1347,6 +1370,12 @@ static const struct ksu_ioctl_cmd_map ksu_ioctl_handlers[] = {
         .cmd = KSU_IOCTL_HOOK_TYPE, 
         .name = "GET_HOOK_TYPE", 
         .handler = do_get_hook_type, 
+        .perm_check = manager_or_root 
+    },
+    { 
+        .cmd = KSU_IOCTL_ENABLE_KPM, 
+        .name = "GET_ENABLE_KPM", 
+        .handler = do_enable_kpm, 
         .perm_check = manager_or_root 
     },
     { 
@@ -1367,6 +1396,14 @@ static const struct ksu_ioctl_cmd_map ksu_ioctl_handlers[] = {
         .handler = do_get_kernel_patch_implement, 
         .perm_check = manager_or_root 
     },
+#ifdef CONFIG_KPM
+    { 
+        .cmd = KSU_IOCTL_KPM, 
+        .name = "KPM_OPERATION", 
+        .handler = do_kpm, 
+        .perm_check = manager_or_root 
+    },
+#endif
     { 
         .cmd = 0, 
         .name = NULL, 
@@ -1383,6 +1420,11 @@ long ksu_supercall_handle_ioctl(unsigned int cmd, void __user *argp)
 #ifdef CONFIG_KSU_DEBUG
     pr_info("ksu ioctl: cmd=0x%x from uid=%d\n", cmd, ksu_get_uid_t(current_uid()));
 #endif
+
+    // KSU capability disabled for this process (and children): reject every
+    // supercall ioctl unconditionally, including DISABLE_ESCAPE_TO_ROOT itself.
+    if (test_thread_flag(TIF_KSU_DISABLE_ESCAPE_WITH_ROOT))
+        return -EPERM;
 
     for (i = 0; ksu_ioctl_handlers[i].handler; i++) {
         if (cmd == ksu_ioctl_handlers[i].cmd) {

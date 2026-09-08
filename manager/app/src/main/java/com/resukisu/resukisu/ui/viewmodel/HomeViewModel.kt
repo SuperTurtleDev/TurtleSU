@@ -113,6 +113,8 @@ class HomeViewModel(
                                 susfsFeatures = susfsInfo.enabledFeatures,
                                 superuserCount = superuserCount,
                                 moduleCount = moduleInfo.count,
+                                kpmVersion = moduleInfo.kpmVersion,
+                                kpmModuleCount = moduleInfo.kpmModuleCount,
                                 managersList = managerInfo,
                                 isDynamicSignEnabled = managerInfo.dynamicSignatureEnabled,
                                 zygiskImplement = moduleInfo.zygiskImplementation,

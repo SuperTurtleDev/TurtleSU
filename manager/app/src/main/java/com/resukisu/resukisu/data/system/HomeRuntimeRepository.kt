@@ -35,6 +35,12 @@ class HomeRuntimeRepository(
     suspend fun getModuleOverview(): HomeModuleOverview = withContext(Dispatchers.IO) {
         HomeModuleOverview(
             count = runCatching { ksuCliRepository.getModuleCount() }.getOrDefault(0),
+            kpmVersion = runCatching {
+                ksuCliRepository.getKpmVersion()
+            }.getOrDefault("Unknown"),
+            kpmModuleCount = runCatching {
+                ksuCliRepository.getKpmModuleCount()
+            }.getOrDefault(0),
             zygiskImplementation = runCatching {
                 ksuCliRepository.getZygiskImplement()
             }.getOrDefault("None"),

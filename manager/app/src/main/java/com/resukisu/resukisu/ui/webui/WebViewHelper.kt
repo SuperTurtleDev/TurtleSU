@@ -21,6 +21,7 @@ import com.resukisu.resukisu.R
 import com.resukisu.resukisu.data.AppSettingsRepository
 import com.resukisu.resukisu.data.packageinfo.AppIconDataSource
 import com.resukisu.resukisu.data.packageinfo.InstalledPackageRepository
+import com.resukisu.resukisu.data.shell.KsuCliRepository
 import com.resukisu.resukisu.data.webui.WebUiRepository
 import com.resukisu.resukisu.ui.viewmodel.ModuleUiAction
 import com.resukisu.resukisu.ui.viewmodel.ModuleUiEvent
@@ -50,6 +51,7 @@ internal suspend fun prepareWebView(
     packageRepository: InstalledPackageRepository,
     appIconDataSource: AppIconDataSource,
     webUiRepository: WebUiRepository,
+    ksuCliRepository: KsuCliRepository,
     colorsCssProvider: () -> String,
 ) {
     withContext(Dispatchers.IO) {
@@ -208,7 +210,7 @@ internal suspend fun prepareWebView(
             }
 
             // JS Interface
-            val webviewInterface = WebViewInterface(webUIState, packageRepository, webUiRepository)
+            val webviewInterface = WebViewInterface(webUIState, packageRepository, webUiRepository, ksuCliRepository)
             webUIState.webView = webView
             webView.addJavascriptInterface(webviewInterface, "ksu")
             webUIState.uiEvent = WebUIEvent.WebViewReady

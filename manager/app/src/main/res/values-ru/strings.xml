@@ -406,6 +406,36 @@
     <string name="storage_permission_description">Необходимо разрешение на внешнее хранилище для записи файла.</string>
     <string name="storage_permission_denied">Загрузка не удалась: требуется разрешение на внешнее хранилище</string>
     <string name="sulog_filter_root_execve">Вызовы execve от root</string>
+
+    <!-- KPM (restored) -->
+    <string name="close_notice">Закрыть</string>
+    <string name="confirm_uninstall_content">Следующие KPM будут удалены: %s</string>
+    <string name="confirm_uninstall_title_with_filename">Удалить</string>
+    <string name="home_kpm_version">Статус KPM</string>
+    <string name="invalid_file_type">Неверный тип файла! Пожалуйста, выберите .kpm файл.</string>
+    <string name="kernel_module_notice">Следующие модульные функции ядра были разработаны KernelPatch и изменены для включения в него функций модуля ядра SukiSU Ultra</string>
+    <string name="kernel_not_enabled">Ядро не настроено</string>
+    <string name="kernel_not_patched">Ядро не изменено</string>
+    <string name="kpm_args">Параметры</string>
+    <string name="kpm_author">Автор</string>
+    <string name="kpm_control">Выполнить</string>
+    <string name="kpm_control_failed">Провален</string>
+    <string name="kpm_control_success">Успешно</string>
+    <string name="kpm_empty">На данный момент нет установленных модулей ядра</string>
+    <string name="kpm_install_failed">Ошибка загрузки KPM модуля</string>
+    <string name="kpm_install_mode">Установка KPM</string>
+    <string name="kpm_install_mode_description">Пожалуйста, выберите %1\$s режим установки модуля \n\nЗагрузить: Временно загрузить модуль \nВстроенный: Окончательно установить в систему</string>
+    <string name="kpm_install_mode_embed">Код для вставки</string>
+    <string name="kpm_install_mode_load">Загрузить</string>
+    <string name="kpm_install_success">KPM модуль успешно загружен</string>
+    <string name="kpm_not_supported">Не поддерживается (%s)</string>
+    <string name="kpm_supported">Поддерживается (%s)</string>
+    <string name="kpm_uninstall">Удалить</string>
+    <string name="kpm_uninstall_failed">Не удалось удалить</string>
+    <string name="kpm_uninstall_success">Удаление завершено</string>
+    <string name="kpm_version">Версия</string>
+    <string name="snackbar_failed_to_check_module_file">Не удалось проверить наличие файла модуля</string>
+    <string name="sulog_filter_root_execve">Выполнение execve от имени root</string>
     <string name="profile_flags">Флаги</string>
     <string name="profile_flags_desc_no_new_privs">Предотвратить дальнейшее повышение привилегий через KernelSU в контексте этого root-профиля</string>
     <string name="manage_app_profile">Управление шаблонами профилей приложений</string>

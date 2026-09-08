@@ -254,6 +254,37 @@
     <string name="settings_sucompat_summary">Memungkinkan aplikasi yang diberi izin Superuser di Profil Aplikasi mendapatkan shell superuser dengan menjalankan /system/bin/su; efektif hanya untuk proses baru.</string>
     <string name="settings_kernel_umount">Meng-unmount modul</string>
     <string name="settings_kernel_umount_summary">Perilaku umount tingkat kernel dikendalikan oleh KernelSU</string>
+
+    <!-- KPM (restored) -->
+    <string name="close_notice">Tutup</string>
+    <string name="confirm_uninstall_content">KPM berikut akan diuninstall: %s</string>
+    <string name="confirm_uninstall_title_with_filename">Menghapus instalan</string>
+    <string name="home_kpm_version">Versi KPM</string>
+    <string name="invalid_file_type">Format file tidak sesuai. Silakan pilih file dengan format .kpm.</string>
+    <string name="kernel_module_notice">Fungsi-fungsi modul kernel berikut dikembangkan oleh KernelPatch dan dimodifikasi untuk menyertakan fungsi modul kernel dari SukiSU Ultra</string>
+    <string name="kernel_not_enabled">Kernel belum dikonfigurasi</string>
+    <string name="kernel_not_patched">Kernel belum ditambal</string>
+    <string name="kpm_args">Parameter</string>
+    <string name="kpm_author">Pembuat</string>
+    <string name="kpm_control">Eksekusi</string>
+    <string name="kpm_control_failed">Gagal</string>
+    <string name="kpm_control_success">Sukses</string>
+    <string name="kpm_empty">Tidak ada modul kernel yang terpasang saat ini</string>
+    <string name="kpm_install_failed">Memuat module KPM gagal!</string>
+    <string name="kpm_install_mode">Instalasi KPM</string>
+    <string name="kpm_install_mode_description">Silakan pilih: %1\$s Mode Instalasi Modul \n\nMuat: Memuat sementara modul \nSematkan: Menginstal secara permanen ke dalam sistem</string>
+    <string name="kpm_install_mode_embed">Sematkan</string>
+    <string name="kpm_install_mode_load">Muat</string>
+    <string name="kpm_install_success">Memuat module KPM berhasil</string>
+    <string name="kpm_not_supported">Tidak Mendukung (%s)</string>
+    <string name="kpm_supported">Mendukung (%s)</string>
+    <string name="kpm_title">KPM</string>
+    <string name="kpm_uninstall">Uninstal</string>
+    <string name="kpm_uninstall_failed">Gagal Uninstal</string>
+    <string name="kpm_uninstall_success">Berhasil di Uninstal</string>
+    <string name="kpm_version">Versi</string>
+    <string name="snackbar_failed_to_check_module_file">Gagal memeriksa keberadaan file modul</string>
+
     <string name="learn_more">Pelajari selengkapnya</string>
     <string name="home_seccomp_status">Status seccomp</string>
     <string name="seccomp_status_not_supported">Tidak didukung</string>

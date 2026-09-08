@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.resukisu.resukisu.data.packageinfo.InstalledPackageRepository
+import com.resukisu.resukisu.data.shell.KsuCliRepository
 import com.resukisu.resukisu.data.webui.WebUiRepository
 import org.json.JSONArray
 import org.json.JSONObject
@@ -20,6 +21,7 @@ class WebViewInterface(
     private val state: WebUIState,
     private val packageRepository: InstalledPackageRepository,
     private val webUiRepository: WebUiRepository,
+    private val ksuCliRepository: KsuCliRepository,
 ) {
     private val webView get() = state.webView!!
     private val modDir get() = state.modDir
@@ -236,6 +238,16 @@ class WebViewInterface(
     @JavascriptInterface
     fun exit() {
         state.requestExit()
+    }
+
+    @JavascriptInterface
+    fun listAllKpm(): String {
+        return ksuCliRepository.listKpmModules()
+    }
+
+    @JavascriptInterface
+    fun controlKpm(name: String, args: String): Int {
+        return ksuCliRepository.controlKpmModule(name, args)
     }
 }
 

@@ -376,6 +376,36 @@
     <string name="module_shortcut_permission_tip_xiaomi">請喺 Xiaomi 設定中為本應用程式啟用「建立桌面捷徑」權限。</string>
     <string name="module_shortcut_permission_tip_oppo">請喺 OPPO 設定中為本應用程式啟用「桌面捷徑」權限。</string>
     <string name="module_shortcut_permission_tip_default">若建立捷徑失敗，請喺系統設定中為本應用程式啟用桌面捷徑權限。</string>
+
+    <!-- KPM (restored) -->
+    <string name="close_notice">關閉</string>
+    <string name="confirm_uninstall_content">將解除安裝以下 KPM 模組：\n%s</string>
+    <string name="confirm_uninstall_title_with_filename">解除安裝</string>
+    <string name="home_kpm_version">KPM 版本</string>
+    <string name="invalid_file_type">檔案類型唔正確，請選擇 .kpm 檔案</string>
+    <string name="kernel_module_notice">以下核心模組功能由 KernelPatch 開發，經過修改後加入 SukiSU Ultra 嘅核心模組功能</string>
+    <string name="kernel_not_enabled">核心未設定</string>
+    <string name="kernel_not_patched">核心未進行補丁</string>
+    <string name="kpm_args">參數</string>
+    <string name="kpm_author">作者</string>
+    <string name="kpm_control">調參</string>
+    <string name="kpm_control_failed">錯誤</string>
+    <string name="kpm_control_success">成功</string>
+    <string name="kpm_empty">暫無已安裝嘅核心模組</string>
+    <string name="kpm_install_failed">加載 KPM 模組失敗</string>
+    <string name="kpm_install_mode">安裝</string>
+    <string name="kpm_install_mode_description">請選擇: %1\$s 模組嘅安裝模式 \n\n加載：臨時加載模組\n嵌入：永久安裝到系統</string>
+    <string name="kpm_install_mode_embed">嵌入</string>
+    <string name="kpm_install_mode_load">加載</string>
+    <string name="kpm_install_success">加載 KPM 模組成功</string>
+    <string name="kpm_not_supported">唔支援 (%s)</string>
+    <string name="kpm_supported">支援 (%s)</string>
+    <string name="kpm_title">核心模組</string>
+    <string name="kpm_uninstall">解除安裝</string>
+    <string name="kpm_uninstall_failed">解除安裝失敗</string>
+    <string name="kpm_uninstall_success">解除安裝成功</string>
+    <string name="kpm_version">版本</string>
+    <string name="snackbar_failed_to_check_module_file">無法檢查模組檔案是否存在</string>
     <string name="settings_selinux_hide">隱藏 SELinux 修改</string>
     <string name="settings_selinux_hide_summary">防止應用程式偵測到 SELinux 被修改</string>
     <string name="settings_selinux_hide_reboot_required">重啟後生效</string>

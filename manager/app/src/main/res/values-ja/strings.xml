@@ -266,4 +266,34 @@
     <string name="confirm_delete">構成を削除</string>
     <string name="operation_failed">操作が失敗しました</string>
     <string name="group_contains_apps">%d 個のアプリが含まれています</string>
+
+    <!-- KPM (restored) -->
+    <string name="close_notice">閉じる</string>
+    <string name="confirm_uninstall_content">次の KPM がアンインストールされます: %s</string>
+    <string name="confirm_uninstall_title_with_filename">アンインストール</string>
+    <string name="home_kpm_version">KPM バージョン</string>
+    <string name="invalid_file_type">ファイルの種類が間違っています！.kpm ファイルを選択してください。</string>
+    <string name="kernel_module_notice">以下のカーネルモジュール関数は KernelPatch によって開発され、SukiSU Ultra のカーネルモジュール関数を含むように変更されました</string>
+    <string name="kernel_not_enabled">カーネルは未設定です</string>
+    <string name="kernel_not_patched">カーネルはパッチされていません</string>
+    <string name="kpm_args">パラメータ</string>
+    <string name="kpm_author">作者</string>
+    <string name="kpm_control">実行</string>
+    <string name="kpm_control_failed">失敗</string>
+    <string name="kpm_control_success">成功</string>
+    <string name="kpm_empty">カーネルモジュールは現在インストールされていません</string>
+    <string name="kpm_install_failed">KPM モジュールの読み込みに失敗しました</string>
+    <string name="kpm_install_mode">KPM をインストール</string>
+    <string name="kpm_install_mode_description">選択してください: %1\$s モジュールのインストールモード \n\n読み込む: モジュールを一時的に読み込みます\n埋め込む: システムで恒久的にインストールします</string>
+    <string name="kpm_install_mode_embed">埋め込む</string>
+    <string name="kpm_install_mode_load">読み込む</string>
+    <string name="kpm_install_success">KPM モジュールの読み込みに成功しました</string>
+    <string name="kpm_not_supported">非対応 (%s)</string>
+    <string name="kpm_supported">対応 (%s)</string>
+    <string name="kpm_title">KPM</string>
+    <string name="kpm_uninstall">アンインストール</string>
+    <string name="kpm_uninstall_failed">アンインストールに失敗しました</string>
+    <string name="kpm_uninstall_success">アンインストールに失敗しました</string>
+    <string name="kpm_version">バージョン</string>
+    <string name="snackbar_failed_to_check_module_file">モジュールファイルが存在するか確認できません</string>
 </resources>

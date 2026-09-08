@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import com.resukisu.resukisu.data.AppSettingsRepository
 import com.resukisu.resukisu.data.packageinfo.AppIconDataSource
 import com.resukisu.resukisu.data.packageinfo.InstalledPackageRepository
+import com.resukisu.resukisu.data.shell.KsuCliRepository
 import com.resukisu.resukisu.data.webui.WebUiRepository
 import com.resukisu.resukisu.ui.theme.KernelSUTheme
 import com.resukisu.resukisu.ui.viewmodel.ModuleViewModel
@@ -64,6 +65,7 @@ private fun MainContent(activity: ComponentActivity, onFinish: () -> Unit) {
     val packageRepository = koinInject<InstalledPackageRepository>()
     val appIconDataSource = koinInject<AppIconDataSource>()
     val webUiRepository = koinInject<WebUiRepository>()
+    val ksuCliRepository = koinInject<KsuCliRepository>()
     val monetColorsProvider = koinInject<MonetColorsProvider>()
     val colorsCss = monetColorsProvider.getColorsCss()
     val currentColorsCss = rememberUpdatedState(colorsCss)
@@ -83,6 +85,7 @@ private fun MainContent(activity: ComponentActivity, onFinish: () -> Unit) {
             packageRepository,
             appIconDataSource,
             webUiRepository,
+            ksuCliRepository,
             { currentColorsCss.value },
         )
     }

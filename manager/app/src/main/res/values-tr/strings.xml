@@ -502,6 +502,35 @@
     <string name="manager_update_details">Sürüm: %1$s (%2$d)\nMimari: %3$s</string>
     <string name="settings_check_beta_update">Beta güncellemelerini kontrol et</string>
     <string name="settings_check_beta_update_summary">Beta güncellemelerini otomatik olarak kontrol et</string>
+
+    <string name="close_notice">Kapat</string>
+    <string name="confirm_uninstall_content">Aşağıdaki KPM kaldırılacak: %s</string>
+    <string name="confirm_uninstall_title_with_filename">Kaldır</string>
+    <string name="home_kpm_version">KPM Sürümü</string>
+    <string name="invalid_file_type">Yanlış dosya türü! Lütfen .kpm dosyasını seçin.</string>
+    <string name="kernel_module_notice">Aşağıdaki çekirdek modül işlevleri KernelPatch tarafından geliştirilmiş ve SukiSU Ultra\'nın çekirdek modül işlevlerini içerecek şekilde değiştirilmiştir</string>
+    <string name="kernel_not_enabled">Çekirdek yapılandırılmadı</string>
+    <string name="kernel_not_patched">Çekirdek yamalanmadı</string>
+    <string name="kpm_args">Parametreler</string>
+    <string name="kpm_author">Geliştirici</string>
+    <string name="kpm_control">Yürüt</string>
+    <string name="kpm_control_failed">Başarısız</string>
+    <string name="kpm_control_success">Başarılı</string>
+    <string name="kpm_empty">Şu anda yüklü çekirdek modülü yok</string>
+    <string name="kpm_install_failed">Kpm modülü yükleme başarısız</string>
+    <string name="kpm_install_mode">KPM Yükleme</string>
+    <string name="kpm_install_mode_description">Lütfen seçin: %1$s Modül Yükleme Modu \n\nYükle: Modülü geçici olarak yükle \nGömülü: Kalıcı olarak sisteme yükle</string>
+    <string name="kpm_install_mode_embed">Göm</string>
+    <string name="kpm_install_mode_load">Yükle</string>
+    <string name="kpm_install_success">Kpm modülü yükleme başarılı</string>
+    <string name="kpm_not_supported">Desteklenmiyor (%s)</string>
+    <string name="kpm_supported">Destekleniyor (%s)</string>
+    <string name="kpm_uninstall">Kaldır</string>
+    <string name="kpm_uninstall_failed">Kaldırılamadı</string>
+    <string name="kpm_uninstall_success">Başarıyla kaldırıldı</string>
+    <string name="kpm_version">Sürüm</string>
+    <string name="snackbar_failed_to_check_module_file">Modül dosyasının varlığını kontrol edilemiyor</string>
+
     <string name="profile_flags_desc_no_new_privs">Bu root profili ile uygulamaların KernelSU aracılığıyla daha fazla ayrıcalık yükseltmesini önleyin.</string>
     <string name="background_crop_method_title">Kırpma yöntemini seçin</string>
     <string name="background_crop_method_in_app">Uygulama içi kırpma</string>

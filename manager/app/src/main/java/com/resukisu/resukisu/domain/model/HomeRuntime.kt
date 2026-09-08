@@ -13,6 +13,8 @@ data class HomeBasicInfo(
 
 data class HomeModuleOverview(
     val count: Int = 0,
+    val kpmVersion: String = "",
+    val kpmModuleCount: Int = 0,
     val zygiskImplementation: String = "",
     val metaModuleImplementation: String = "",
 )
@@ -29,6 +31,8 @@ data class HomeSystemInfo(
     val susfsFeatures: String = "",
     val superuserCount: Int = 0,
     val moduleCount: Int = 0,
+    val kpmVersion: String = "",
+    val kpmModuleCount: Int = 0,
     val managersList: ManagerRuntimeInfo? = null,
     val isDynamicSignEnabled: Boolean = false,
     val zygiskImplement: String = "",

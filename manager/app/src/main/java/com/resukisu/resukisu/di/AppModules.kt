@@ -153,6 +153,7 @@ import com.resukisu.resukisu.ui.viewmodel.FlashViewModel
 import com.resukisu.resukisu.ui.viewmodel.HomeViewModel
 import com.resukisu.resukisu.ui.viewmodel.InstallViewModel
 import com.resukisu.resukisu.ui.viewmodel.KernelFlashViewModel
+import com.resukisu.resukisu.ui.viewmodel.KpmViewModel
 import com.resukisu.resukisu.ui.viewmodel.MainIntentViewModel
 import com.resukisu.resukisu.ui.viewmodel.ModuleDetailViewModel
 import com.resukisu.resukisu.ui.viewmodel.ModuleRepoViewModel
@@ -411,6 +412,7 @@ val viewModelModule = module {
     viewModelOf(::HomeViewModel)
     viewModelOf(::InstallViewModel)
     viewModelOf(::MainIntentViewModel)
+    viewModelOf(::KpmViewModel)
     viewModelOf(::KernelFlashViewModel)
     viewModelOf(::SettingsViewModel)
     viewModelOf(::ModuleViewModel)

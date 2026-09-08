@@ -22,6 +22,7 @@ data class KernelStatus(
     val lkmMode: Boolean? = null,
     val kernelVersion: KernelVersion,
     val isRootAvailable: Boolean = false,
+    val isKpmConfigured: Boolean = false,
     val requireNewKernel: Boolean = false,
     val uapiMismatch: Boolean = false,
     val isSELinuxPermissive: Boolean = false,

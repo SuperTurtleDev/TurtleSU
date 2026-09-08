@@ -3,6 +3,7 @@ package com.resukisu.resukisu.ui.screen
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AdminPanelSettings
+import androidx.compose.material.icons.twotone.Archive
 import androidx.compose.material.icons.twotone.Extension
 import androidx.compose.material.icons.twotone.Home
 import androidx.compose.material.icons.twotone.Settings
@@ -11,6 +12,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import com.resukisu.resukisu.R
 import com.resukisu.resukisu.ui.screen.main.HomePage
+import com.resukisu.resukisu.ui.screen.main.KpmPage
 import com.resukisu.resukisu.ui.screen.main.ModulePage
 import com.resukisu.resukisu.ui.screen.main.SettingsPage
 import com.resukisu.resukisu.ui.screen.main.SuperUserPage
@@ -28,6 +30,13 @@ enum class BottomBarDestination(
         Icons.TwoTone.Home,
         Icons.TwoTone.Home,
         false
+    ),
+    Kpm(
+        { bottomPadding -> KpmPage(bottomPadding) },
+        R.string.kpm_title,
+        Icons.TwoTone.Archive,
+        Icons.TwoTone.Archive,
+        true
     ),
     SuperUser(
         { bottomPadding -> SuperUserPage(bottomPadding) },

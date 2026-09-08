@@ -56,6 +56,9 @@ fun NavigationBar(
     val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
     val superuserCount = uiState.systemInfo.superuserCount
     val moduleCount = uiState.systemInfo.moduleCount
+    val kpmModuleCount = uiState.systemInfo.kpmModuleCount
+
+    // 翻页处理
     val page = LocalSelectedPage.current
     val handlePageChange = LocalHandlePageChange.current
 
@@ -84,6 +87,7 @@ fun NavigationBar(
                     onClick = {
                         handlePageChange(index)
                     },
+                    kpmModuleCount = kpmModuleCount,
                     superuserCount = superuserCount,
                     moduleCount = moduleCount,
                 )
@@ -119,6 +123,7 @@ fun NavigationBar(
                     onClick = {
                         handlePageChange(index)
                     },
+                    kpmModuleCount = kpmModuleCount,
                     superuserCount = superuserCount,
                     moduleCount = moduleCount,
                 )
@@ -132,6 +137,7 @@ private fun NavigationRailItem(
     isSelected: Boolean,
     destination: BottomBarDestination,
     onClick: () -> Unit,
+    kpmModuleCount: Int,
     superuserCount: Int,
     moduleCount: Int,
 ) {
@@ -146,6 +152,7 @@ private fun NavigationRailItem(
                         dest = destination,
                         superUser = superuserCount,
                         module = moduleCount,
+                        kpm = kpmModuleCount,
                     )
                 }
             ) {
@@ -173,6 +180,7 @@ private fun RowScope.BottomBarNavigationItem(
     isSelected: Boolean,
     destination: BottomBarDestination,
     onClick: () -> Unit,
+    kpmModuleCount: Int,
     superuserCount: Int,
     moduleCount: Int,
 ) {
@@ -186,6 +194,7 @@ private fun RowScope.BottomBarNavigationItem(
                         dest = destination,
                         superUser = superuserCount,
                         module = moduleCount,
+                        kpm = kpmModuleCount,
                     )
                 }
             ) {
@@ -214,8 +223,10 @@ private fun DestinationBadge(
     dest: BottomBarDestination,
     superUser: Int,
     module: Int,
+    kpm: Int,
 ) {
     val count = when (dest) {
+        BottomBarDestination.Kpm -> kpm
         BottomBarDestination.SuperUser -> superUser
         BottomBarDestination.Module -> module
         else -> 0
